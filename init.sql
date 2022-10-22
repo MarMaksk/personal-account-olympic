@@ -1,0 +1,11 @@
+-- CREATE TABLE IF NOT EXISTS users(
+--   user_id INT NOT NULL,
+--   firstname varchar(250) NOT NULL,
+--   secondname varchar(250) NOT NULL,
+--   PRIMARY KEY (user_id)
+-- );
+--
+--
+-- INSERT INTO users(user_id, firstname, secondname) VALUES(1, 'John', 'Smith');
+-- INSERT INTO users(user_id, firstname, secondname) VALUES(2, 'Vlad', 'Impaler');
+-- INSERT INTO users(user_id, firstname, secondname) VALUES(3, 'Boba', 'Fett');
