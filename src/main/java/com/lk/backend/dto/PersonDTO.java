@@ -1,6 +1,5 @@
 package com.lk.backend.dto;
 
-import com.lk.backend.dto.PassportDto;
 import com.lk.backend.entity.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,9 +13,9 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonDto implements Serializable {
+public class PersonDTO implements Serializable {
     private String firstName;
     private String secondName;
     private String lastName;
-    private PassportDto passport;
+    private PassportDTO passport;
 }

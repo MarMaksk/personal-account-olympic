@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressDto implements Serializable {
+public class AddressDTO implements Serializable {
     private String area;
     private String district;
     private String locality;

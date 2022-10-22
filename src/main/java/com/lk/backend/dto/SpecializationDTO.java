@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SpecializationDto implements Serializable {
+public class SpecializationDTO implements Serializable {
     private String code;
     private String name;
     private String subject;
