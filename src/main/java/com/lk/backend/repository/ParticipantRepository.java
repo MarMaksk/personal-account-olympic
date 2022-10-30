@@ -13,5 +13,6 @@ public interface ParticipantRepository extends JpaRepository<Participant, Long> 
     Optional<Participant> findByPersonPassportIdentityNumber(String identityPassportNumber);
 
     Optional<Participant> findByPersonPassportSeriesAndPersonPassportNumber(String series, String number);
+    Optional<Participant> findByPersonPassportId(Long id);
 
 }

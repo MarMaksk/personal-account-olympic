@@ -3,12 +3,13 @@ package com.lk.backend.service.mapper;
 import com.lk.backend.dto.UserDTO;
 import com.lk.backend.entity.User;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class UserDTOMapper implements EntityToDTOMapper<User, UserDTO> {
 

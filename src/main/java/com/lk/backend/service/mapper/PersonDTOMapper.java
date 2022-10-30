@@ -3,10 +3,11 @@ package com.lk.backend.service.mapper;
 import com.lk.backend.dto.PersonDTO;
 import com.lk.backend.entity.Person;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class PersonDTOMapper implements EntityToDTOMapper<Person, PersonDTO> {
 

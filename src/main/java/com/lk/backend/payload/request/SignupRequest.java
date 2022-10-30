@@ -3,6 +3,7 @@ package com.lk.backend.payload.request;
 import com.lk.backend.annotation.PasswordMatches;
 import lombok.Data;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -17,5 +18,8 @@ public class SignupRequest {
     private String password;
     @NotBlank(message = "Please confirm your password")
     private String confirmPassword;
+    @NotBlank(message = "Please enter your email")
+    @Email
+    private String email;
 
 }

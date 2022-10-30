@@ -18,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "users", indexes = {
         @Index(name = "idx_user_email_unq", columnList = "email", unique = true),
-        @Index(name = "idx_user_login_unq", columnList = "login", unique = true)
+        @Index(name = "idx_user_username_unq", columnList = "username", unique = true)
 })
 public class User extends AbstractEntity implements UserDetails {
 

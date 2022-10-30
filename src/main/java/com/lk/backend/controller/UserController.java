@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("avia/user")
+@RequestMapping("user")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)

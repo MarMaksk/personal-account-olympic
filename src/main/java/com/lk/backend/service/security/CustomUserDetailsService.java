@@ -1,4 +1,4 @@
-package com.lk.backend.service;
+package com.lk.backend.service.security;
 
 import com.lk.backend.entity.User;
 import com.lk.backend.repository.UserRepository;

@@ -14,6 +14,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PassportDTO implements Serializable {
+
+    private Long id;
     @Size(min = 2, max = 2)
     private String series;
     @Size(min = 7, max = 7)

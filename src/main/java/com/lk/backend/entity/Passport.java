@@ -16,11 +16,11 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Passport extends AbstractEntity {
 
-    @Column(nullable = false, length = 2)
+    @Column(nullable = false)
     private String series;
-    @Column(nullable = false, unique = true, length = 7)
+    @Column(nullable = false, unique = true)
     private String number;
-    @Column(nullable = false, length = 14)
+    @Column(nullable = false)
     private String identityNumber;
 
 }

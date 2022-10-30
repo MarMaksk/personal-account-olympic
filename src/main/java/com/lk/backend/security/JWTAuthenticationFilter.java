@@ -1,7 +1,7 @@
 package com.lk.backend.security;
 
 import com.lk.backend.entity.User;
-import com.lk.backend.service.CustomUserDetailsService;
+import com.lk.backend.service.security.CustomUserDetailsService;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;

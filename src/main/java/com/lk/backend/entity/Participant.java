@@ -15,7 +15,7 @@ import java.util.Set;
 @Data
 public class Participant extends AbstractEntity {
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Person person;
@@ -23,7 +23,9 @@ public class Participant extends AbstractEntity {
     @JsonFormat(pattern = "dd.MM.yyyy")
     private Date birthday;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Address address;
 
     @Email
@@ -35,13 +37,13 @@ public class Participant extends AbstractEntity {
      */
     private String educationalInstitution;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "legalRepresentative_id")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Person legalRepresentative;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "participant_id")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
