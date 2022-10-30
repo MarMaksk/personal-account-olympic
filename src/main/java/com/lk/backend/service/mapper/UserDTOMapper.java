@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class UserDTOMapper {
+public class UserDTOMapper implements EntityToDTOMapper<User, UserDTO> {
 
     static Logger LOG = LoggerFactory.getLogger(UserDTOMapper.class);
     private final ModelMapper mapper;

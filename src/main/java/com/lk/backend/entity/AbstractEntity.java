@@ -1,5 +1,6 @@
 package com.lk.backend.entity;
 
+import com.lk.backend.audit.AuditEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @Getter
 @Setter
-public abstract class AbstractEntity {
+public abstract class AbstractEntity extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
