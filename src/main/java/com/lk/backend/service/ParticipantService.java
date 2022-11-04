@@ -74,8 +74,7 @@ public class ParticipantService implements CRUD<ParticipantDTO> {
     }
 
     @Override
-    public void delete(ParticipantDTO dto) {
-        Participant participant = repository.findByEmail(dto.getEmail()).orElseThrow(NoSuchInfoException::new);
-        repository.delete(participant);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

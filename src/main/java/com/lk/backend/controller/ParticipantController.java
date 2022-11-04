@@ -47,7 +47,7 @@ public class ParticipantController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody ParticipantDTO dto) {
-        service.delete(dto);
+    public void delete(@RequestParam Long id) {
+        service.delete(id);
     }
 }

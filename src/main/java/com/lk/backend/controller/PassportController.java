@@ -43,7 +43,7 @@ public class PassportController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody PassportDTO dto) {
-        service.delete(dto);
+    public void delete(@RequestParam Long id) {
+        service.delete(id);
     }
 }

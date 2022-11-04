@@ -31,7 +31,6 @@ public class PassportService implements CRUD<PassportDTO> {
         passport.setNumber(crypt.encrypt(dto.getNumber()));
         passport.setSeries(crypt.encrypt(dto.getSeries()));
         passport.setIdentityNumber(crypt.encrypt(dto.getIdentityNumber()));
-        System.out.println(crypt.encrypt(dto.getIdentityNumber()));
         repository.save(passport);
     }
 
@@ -66,8 +65,7 @@ public class PassportService implements CRUD<PassportDTO> {
     }
 
     @Override
-    public void delete(PassportDTO dto) {
-        Passport passport = repository.findByIdentityNumber(dto.getIdentityNumber()).orElseThrow(NoSuchInfoException::new);
-        repository.delete(passport);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

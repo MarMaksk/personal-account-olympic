@@ -38,7 +38,7 @@ public class SDOUserController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody SDOUser user) {
-        service.delete(user);
+    public void delete(@RequestParam Long id) {
+        service.delete(id);
     }
 }

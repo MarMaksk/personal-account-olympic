@@ -51,8 +51,7 @@ public class PersonService implements CRUD<PersonDTO> {
     }
 
     @Override
-    public void delete(PersonDTO dto) {
-        Person person = repository.findById(dto.getId()).orElseThrow(NoSuchInfoException::new);
-        repository.delete(person);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

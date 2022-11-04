@@ -34,8 +34,8 @@ public class AddressController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody AddressDTO dto) {
-        service.delete(dto);
+    public void delete(@RequestParam Long id) {
+        service.delete(id);
     }
 
 }

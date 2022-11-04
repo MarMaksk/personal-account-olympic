@@ -35,7 +35,7 @@ public class SpecializationController {
     }
 
     @DeleteMapping
-    public void delete(SpecializationDTO dto) {
-        service.delete(dto);
+    public void delete(@RequestParam Long id) {
+        service.delete(id);
     }
 }

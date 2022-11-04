@@ -41,8 +41,7 @@ public class SpecializationService implements CRUD<SpecializationDTO> {
     }
 
     @Override
-    public void delete(SpecializationDTO dto) {
-        Specialization specialization = repository.findByCode(dto.getCode()).orElseThrow(NoSuchInfoException::new);
-        repository.delete(specialization);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

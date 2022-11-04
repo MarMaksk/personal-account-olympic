@@ -56,7 +56,7 @@ public class SDOUserService {
     }
 
     @Transactional
-    public void delete(SDOUser user) {
-        repository.delete(user);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

@@ -42,7 +42,7 @@ public class PersonController {
     }
 
     @DeleteMapping
-    public void delete(@RequestBody PersonDTO dto) {
-        service.delete(dto);
+    public void delete(@RequestParam Long id) {
+        service.delete(id);
     }
 }
