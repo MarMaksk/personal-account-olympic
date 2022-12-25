@@ -5,7 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -20,6 +19,7 @@ public class Person extends AbstractEntity {
 
     private String lastName;
 
+    private String number;
     @OneToOne
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

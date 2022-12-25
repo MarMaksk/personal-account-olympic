@@ -20,6 +20,16 @@ public class PersonDTO implements Serializable {
     private String lastName;
     private PassportDTO passport;
 
+    private String number;
+
+    public PersonDTO(String firstName, String secondName, String lastName, PassportDTO passport, String number) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.lastName = lastName;
+        this.passport = passport;
+        this.number = number;
+    }
+
     public PersonDTO(String firstName, String secondName, String lastName) {
         this.firstName = firstName;
         this.secondName = secondName;

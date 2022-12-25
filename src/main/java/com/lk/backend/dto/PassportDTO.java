@@ -22,4 +22,10 @@ public class PassportDTO implements Serializable {
     private String number;
     @Size(min = 14, max = 14)
     private String identityNumber;
+
+    public PassportDTO(String series, String number, String identityNumber) {
+        this.series = series;
+        this.number = number;
+        this.identityNumber = identityNumber;
+    }
 }

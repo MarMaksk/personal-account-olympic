@@ -32,9 +32,6 @@ public class Participant extends AbstractEntity {
     @Column(unique = true)
     private String email;
 
-    /**
-     * educationalInstitution, вероятно, необходимо оформить как отдельную сущность
-     */
     private String educationalInstitution;
 
     @ManyToOne(cascade = CascadeType.PERSIST)

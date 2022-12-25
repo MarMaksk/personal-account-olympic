@@ -1,8 +1,10 @@
 package com.lk.backend.service;
 
 import com.lk.backend.dto.PassportDTO;
+import com.lk.backend.entity.Participant;
 import com.lk.backend.entity.Passport;
 import com.lk.backend.exceptions.NoSuchInfoException;
+import com.lk.backend.repository.ParticipantRepository;
 import com.lk.backend.repository.PassportRepository;
 import com.lk.backend.service.mapper.PassportDTOMapper;
 import lombok.AccessLevel;
@@ -23,7 +25,6 @@ public class PassportService implements CRUD<PassportDTO> {
     ModelMapper modelMapper;
 
     Crypt crypt;
-
 
     @Override
     public void create(PassportDTO dto) {

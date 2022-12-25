@@ -28,7 +28,7 @@ import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/avia/auth")
+@RequestMapping("/olymp/auth")
 @CrossOrigin(origins = "*")
 @PreAuthorize("permitAll()")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)

@@ -1,5 +1,6 @@
 package com.lk.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lk.backend.entity.enums.ERole;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,9 +26,12 @@ import java.util.Set;
 public class User extends AbstractEntity implements UserDetails {
 
     @Column(nullable = false, unique = true)
+    @JsonProperty("login")
     private String username;
 
     @Column(nullable = false)
+    @Min(4)
+    @Max(16)
     private String password;
 
     @Email

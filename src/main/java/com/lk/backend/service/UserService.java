@@ -34,7 +34,8 @@ public class UserService {
         LOG.info("createUser method called in UserService");
         User user = new User();
         user.setUsername(userIn.getUsername().toLowerCase());
-        user.setEmail(userIn.getEmail().toLowerCase());
+        // todo
+//        user.setEmail(userIn.getEmail().toLowerCase());
         user.setPassword(bCryptPasswordEncoder.encode(userIn.getPassword()));
         user.getRoles().add(ERole.ROLE_USER);
         try {
