@@ -22,9 +22,10 @@ public class AddressService implements CRUD<AddressDTO> {
     ModelMapper modelMapper;
 
     @Override
-    public void create(AddressDTO dto) {
+    public AddressDTO create(AddressDTO dto) {
         Address address = mapper.toEntity(dto);
-        repository.save(address);
+        Address save = repository.save(address);
+        return mapper.toDTO(save);
     }
 
     @Override

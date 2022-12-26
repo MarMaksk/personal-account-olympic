@@ -12,9 +12,12 @@ import com.lk.backend.service.mapper.PersonDTOMapper;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
@@ -29,7 +32,7 @@ public class ParticipantService implements CRUD<ParticipantDTO> {
     SDOUserService sdoUserService;
 
     @Override
-    public void create(ParticipantDTO dto) {
+    public ParticipantDTO create(ParticipantDTO dto) {
         Participant participant = mapper.toEntity(dto);
         if (dto.getPerson() != null && dto.getPerson().getPassport() != null) {
             passportService.create(dto.getPerson().getPassport());
@@ -39,13 +42,16 @@ public class ParticipantService implements CRUD<ParticipantDTO> {
                     .setPassport(passportDTOMapper.toEntity(pass));
         }
         if (dto.getLegalRepresentative() != null && dto.getLegalRepresentative().getPassport() != null) {
-            passportService.create(dto.getLegalRepresentative().getPassport());
+            PassportDTO passportDTO = passportService.create(dto.getLegalRepresentative().getPassport());
+            log.error(passportDTO.toString());
             PassportDTO repPass = passportService.find(participant.getLegalRepresentative().getPassport().getIdentityNumber());
+            log.error(repPass.toString());
             participant
                     .getLegalRepresentative()
-                    .setPassport(passportDTOMapper.toEntity(repPass));
+                    .setPassport(passportDTOMapper.toEntity(passportDTO));
         }
-        repository.save(participant);
+        Participant save = repository.save(participant);
+        return mapper.toDTO(save);
     }
 
     @Override
@@ -66,11 +72,16 @@ public class ParticipantService implements CRUD<ParticipantDTO> {
         return mapper.toDTO(participant);
     }
 
+    @Transactional
     public void addLegalRepresentative(PersonDTO dto, String email) {
         Participant participant = repository.findByEmail(email).orElseThrow(NoSuchInfoException::new);
         System.out.println(participant.getLegalRepresentative());
         System.out.println(dto);
         participant.setLegalRepresentative(personDTOMapper.toEntity(dto));
+        PassportDTO passportDTO = passportService.create(dto.getPassport());
+        participant
+                .getLegalRepresentative()
+                .setPassport(passportDTOMapper.toEntity(passportDTO));
         System.out.println(participant.getLegalRepresentative());
         repository.save(participant);
     }

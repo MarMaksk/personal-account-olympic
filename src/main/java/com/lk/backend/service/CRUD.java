@@ -5,7 +5,7 @@ import javax.transaction.Transactional;
 public interface CRUD<D> {
 
     @Transactional
-    void create(D dto) throws Exception;
+    D create(D dto) throws Exception;
 
     @Transactional
     D find(String findBy) throws Exception;

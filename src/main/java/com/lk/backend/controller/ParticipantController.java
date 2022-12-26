@@ -40,12 +40,12 @@ public class ParticipantController {
     }
 
     @PostMapping("{email}")
-    public void addLegalRepresentative(HttpServletRequest request, @PathVariable String email) throws IOException {
+    public void addLegalRepresentative(HttpServletRequest request, @RequestBody PersonDTO personDTO, @PathVariable String email) throws IOException {
         log.info("A request for the addLegalRepresentative method was received");
-        log.info(request.getReader().lines().collect(Collectors.joining(System.lineSeparator())));
-        PersonDTO person = new PersonDTO();
-//        log.info("Received: " + person + email);
-        service.addLegalRepresentative(person, email);
+//        log.info(request.getReader().lines().collect(Collectors.joining(System.lineSeparator())));
+//        PersonDTO person = new PersonDTO();
+        log.info("Received: " + personDTO + email);
+        service.addLegalRepresentative(personDTO, email);
     }
 
     @GetMapping("/{email}")

@@ -23,10 +23,11 @@ public class PersonService implements CRUD<PersonDTO> {
     ModelMapper modelMapper;
 
     @Override
-    public void create(PersonDTO dto) {
+    public PersonDTO create(PersonDTO dto) {
         if (dto.getPassport() != null)
             passportService.create(dto.getPassport());
-        repository.save(mapper.toEntity(dto));
+        Person save = repository.save(mapper.toEntity(dto));
+        return mapper.toDTO(save);
     }
 
     @Override

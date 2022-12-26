@@ -40,7 +40,7 @@ public class Participant extends AbstractEntity {
     @EqualsAndHashCode.Exclude
     private Person legalRepresentative;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "participant_id")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

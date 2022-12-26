@@ -11,6 +11,8 @@ import lombok.experimental.FieldDefaults;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
@@ -21,9 +23,10 @@ public class SpecializationService implements CRUD<SpecializationDTO> {
     ModelMapper modelMapper;
 
     @Override
-    public void create(SpecializationDTO dto) {
+    public SpecializationDTO create(SpecializationDTO dto) {
         Specialization specialization = mapper.toEntity(dto);
-        repository.save(specialization);
+        Specialization save = repository.save(specialization);
+        return mapper.toDTO(save);
     }
 
     @Override
@@ -43,5 +46,9 @@ public class SpecializationService implements CRUD<SpecializationDTO> {
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    public List<SpecializationDTO> findAll() {
+        return mapper.toDTOs(repository.findAll());
     }
 }

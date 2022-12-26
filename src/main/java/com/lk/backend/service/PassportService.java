@@ -1,10 +1,8 @@
 package com.lk.backend.service;
 
 import com.lk.backend.dto.PassportDTO;
-import com.lk.backend.entity.Participant;
 import com.lk.backend.entity.Passport;
 import com.lk.backend.exceptions.NoSuchInfoException;
-import com.lk.backend.repository.ParticipantRepository;
 import com.lk.backend.repository.PassportRepository;
 import com.lk.backend.service.mapper.PassportDTOMapper;
 import lombok.AccessLevel;
@@ -12,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
-import java.util.Base64;
 
 @Service
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
@@ -27,12 +23,13 @@ public class PassportService implements CRUD<PassportDTO> {
     Crypt crypt;
 
     @Override
-    public void create(PassportDTO dto) {
+    public PassportDTO create(PassportDTO dto) {
         Passport passport = mapper.toEntity(dto);
         passport.setNumber(crypt.encrypt(dto.getNumber()));
         passport.setSeries(crypt.encrypt(dto.getSeries()));
         passport.setIdentityNumber(crypt.encrypt(dto.getIdentityNumber()));
-        repository.save(passport);
+        Passport save = repository.save(passport);
+        return mapper.toDTO(save);
     }
 
     @Override
